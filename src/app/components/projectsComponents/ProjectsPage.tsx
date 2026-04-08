@@ -1,4 +1,6 @@
 import { projects } from "@/app/utils/projects";
+import Link from "next/link";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import ProjectCard from "./ProjectsCard/ProjectCard";
 
 const ProjectsPage = () => {
@@ -13,6 +15,20 @@ const ProjectsPage = () => {
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
+      </div>
+      <div className="flex items-center justify-between py-8">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-900 cursor-pointer">
+          <IoIosArrowBack />
+          <Link href="/about" className="text-white font-bold">
+            About
+          </Link>
+        </div>
+        <div className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-900 cursor-pointer">
+          <Link href="/skills-tools" className="text-white font-bold">
+            Skill & Tools
+          </Link>
+          <IoIosArrowForward />
+        </div>
       </div>
     </div>
   );

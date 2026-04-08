@@ -39,24 +39,25 @@ const Header = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Menu open with scroll up effect
+  // Menu open with bottom to top animation
   const openMenu = () => {
     setIsMenuOpen(true);
     // Start from bottom (fully hidden)
     setTranslateY(500);
-    // Force reflow
+    // Force reflow and animate to 0
     setTimeout(() => {
       setTranslateY(0);
     }, 10);
   };
 
-  // Menu close with scroll down effect
+  // Menu close with top to bottom animation
   const closeMenu = () => {
     setTranslateY(500);
+    // Wait for animation to complete before removing menu
     setTimeout(() => {
       setIsMenuOpen(false);
       setTranslateY(0);
-    }, 400);
+    }, 400); // This should match the transition duration
   };
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -83,7 +84,7 @@ const Header = () => {
     if (distance > 100) {
       closeMenu();
     } else {
-      // Snap back to fully open position
+      // Snap back to fully open position with smooth animation
       setTranslateY(0);
     }
 
@@ -92,86 +93,97 @@ const Header = () => {
   };
 
   return (
-    <div className="py-4 bg-transparent backdrop-blur-2xl">
-      <div className="flex items-center justify-between">
-        <GiHamburgerMenu
-          className="text-xl cursor-pointer md:hidden"
-          onClick={openMenu}
-        />
-        <div className="hidden md:block">
-          <div className="flex items-center gap-10">
-            <div className="flex items-center gap-2">
-              <FaArrowUp className="rotate-45 text-3xl" />
-              <Link href="/" className="text-lg font-bold ">
-                moshiur.dev
-              </Link>
-            </div>
-            <div>
-              <ul className="flex items-center gap-6">
-                <li>
-                  <Link
-                    href="/"
-                    className={`transition-colors ${pathname === "/" ? "text-white font-semibold" : "text-gray-400 hover:text-white"}`}
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li className="group flex items-center gap-2 font-semibold text-gray-400 hover:text-white transition-all duration-200 ">
-                  <a
-                    href="https://www.linkedin.com/in/moshiurrahmandeap"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LinkedIn
-                  </a>
-                  <CiShare1 className="transition-transform duration-200 group-hover:font-semibold group-hover:rotate-90" />
-                </li>
-                <li className="group flex items-center gap-2 font-semibold text-gray-400 hover:text-white transition-all duration-200">
-                  <a
-                    href="https://drive.google.com/file/d/1SLw6YHzNh0fdagBRbOMO77cVzqQSWW6t/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Resume
-                  </a>
-                  <CiShare1 className="transition-transform duration-200 group-hover:font-semibold group-hover:rotate-90" />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center gap-6">
+    <>
+      {/* Header with blur effect - separate from menu */}
+      <div className="sticky top-0 z-40 py-4 bg-transparent backdrop-blur-2xl">
+        <div className="flex items-center justify-between">
+          <GiHamburgerMenu
+            className="text-xl cursor-pointer md:hidden"
+            onClick={openMenu}
+          />
           <div className="hidden md:block">
-            <SearchBox />
+            <div className="flex items-center gap-10">
+              <div className="flex items-center gap-2">
+                <FaArrowUp className="rotate-45 text-3xl" />
+                <Link href="/" className="text-lg font-bold ">
+                  moshiur.dev
+                </Link>
+              </div>
+              <div>
+                <ul className="flex items-center gap-6">
+                  <li>
+                    <Link
+                      href="/"
+                      className={`transition-colors ${pathname === "/" ? "text-white font-semibold" : "text-gray-400 hover:text-white"}`}
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li className="group flex items-center gap-2 font-semibold text-gray-400 hover:text-white transition-all duration-200 ">
+                    <a
+                      href="https://www.linkedin.com/in/moshiurrahmandeap"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      LinkedIn
+                    </a>
+                    <CiShare1 className="transition-transform duration-200 group-hover:font-semibold group-hover:rotate-90" />
+                  </li>
+                  <li className="group flex items-center gap-2 font-semibold text-gray-400 hover:text-white transition-all duration-200">
+                    <a
+                      href="https://drive.google.com/file/d/1SLw6YHzNh0fdagBRbOMO77cVzqQSWW6t/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Resume
+                    </a>
+                    <CiShare1 className="transition-transform duration-200 group-hover:font-semibold group-hover:rotate-90" />
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div className="mt-2 flex items-center gap-2 bg-gray-900 px-4 py-1 rounded-full border-2 border-gray-700">
-            <span className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span>
-            <p className="text-white font-semibold">{time}</p>
+          <div className="flex items-center gap-6">
+            <div className="hidden md:block">
+              <SearchBox />
+            </div>
+            <div className="mt-2 flex items-center gap-2 bg-gray-900 px-4 py-1 rounded-full border-2 border-gray-700">
+              <span className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span>
+              <p className="text-white font-semibold">{time}</p>
+            </div>
+            <MusicBox />
+            <a
+              href="https://github.com/moshiurrahmandeap11"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="text-2xl cursor-pointer" />
+            </a>
           </div>
-          <MusicBox />
-          <a
-            href="https://github.com/moshiurrahmandeap11"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub className="text-2xl cursor-pointer" />
-          </a>
         </div>
       </div>
 
-      {/* Mobile Menu with Scroll Effect */}
+      {/* Mobile Menu with higher z-index */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/60 z-50"
+          className="fixed inset-0 z-50"
           onClick={closeMenu}
           style={{
-            backdropFilter: "blur(4px)",
             animation: "fadeIn 0.3s ease-out",
           }}
         >
+          {/* Backdrop with blur */}
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            style={{
+              animation: "fadeIn 0.3s ease-out",
+            }}
+          />
+
+          {/* Menu Panel */}
           <div
             ref={menuRef}
-            className="fixed bottom-0 left-0 w-full bg-linear-to-t from-black/95 to-black/90 backdrop-blur-md border-t-2 border-gray-700 text-white rounded-t-2xl"
+            className="absolute bottom-0 left-0 right-0 w-full bg-linear-to-t from-gray-900 to-black border-t-2 border-gray-700 text-white rounded-t-2xl shadow-2xl"
             style={{
               transform: `translateY(${translateY}px)`,
               transition: isDragging
@@ -215,7 +227,7 @@ const Header = () => {
               </div>
 
               <div
-                className="w-full flex items-center justify-between bg-black/70 border-2 border-gray-600 px-1 py-2 rounded-md "
+                className="w-full flex items-center justify-between bg-black/70 border-2 border-gray-600 px-1 py-2 rounded-md hover:bg-black/80 transition-colors cursor-pointer"
                 onClick={closeMenu}
               >
                 <Link
@@ -224,7 +236,7 @@ const Header = () => {
                 >
                   Home
                 </Link>
-                <FaArrowUp className="rotate-90 " />
+                <FaArrowUp className="rotate-90 mr-2" />
               </div>
 
               {/* Divider */}
@@ -247,11 +259,9 @@ const Header = () => {
         @keyframes fadeIn {
           from {
             opacity: 0;
-            backdrop-filter: blur(0px);
           }
           to {
             opacity: 1;
-            backdrop-filter: blur(4px);
           }
         }
 
@@ -266,7 +276,7 @@ const Header = () => {
           }
         }
       `}</style>
-    </div>
+    </>
   );
 };
 

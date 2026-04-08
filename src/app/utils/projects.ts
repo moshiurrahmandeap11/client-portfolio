@@ -257,4 +257,169 @@ export const projects = [
       "https://i.postimg.cc/xTbBsbVR/Screenshot-2026-04-08-172738.png",
     ],
   },
+  {
+    id: 6,
+    title: "Netrakona Pressclub website",
+    slug: "netrakona-pressclub-website",
+    short_description:
+      "Netrakona Pressclub website is a platform that provides news and information about Netrakona district.",
+    descriptioin:
+      "Netrakona Pressclub website is a platform that provides news and information about Netrakona district. The website offers features such as news articles, event updates, and a directory of local businesses and organizations. With its user-friendly interface and comprehensive content, the website serves as a valuable resource for residents and visitors of Netrakona.",
+    techStack: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+    features: [
+      "News articles about Netrakona district",
+      "Event updates for the local community",
+      "Directory of local businesses and organizations",
+      "User-friendly interface",
+      "Comprehensive content for residents and visitors",
+    ],
+    challenges: [
+      "Designing a platform that effectively serves the local community",
+      "Creating a user-friendly interface for diverse users",
+      "Integrating various features seamlessly into a single platform",
+    ],
+    learnings: ["Gained experience in building websites for local communities"],
+    links: [
+      {
+        name: "Live Demo",
+        url: "https://pressclub-netrakona-client.vercel.app/",
+      },
+      {
+        name: "GitHub",
+        url: "https://github.com/moshiurrahmandeap11/pressclub-netrakona-client",
+      },
+    ],
+    screenshots: [
+      "https://i.postimg.cc/YSkZ81gr/Screenshot-2026-04-08-201538.png",
+    ],
+  },
+  {
+    id: 7,
+    title: "Service Provider",
+    slug: "service-provider",
+    short_description:
+      "Service Provider is a platform that connects service providers with customers in need of their services.",
+    descriptioin:
+      "Service Provider is a platform that connects service providers with customers in need of their services. The platform offers features such as service listings, customer reviews, and a secure payment system. With its user-friendly interface and comprehensive features, Service Provider facilitates seamless interactions between service providers and customers, making it easier for users to find and access the services they need.",
+    techStack: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+    features: [
+      "Service listings for various types of services",
+      "custom dashboard for service providers to manage their listings and interactions with customers",
+      "Customer reviews and ratings",
+      "Secure payment system for transactions",
+      "User-friendly interface",
+      "Comprehensive features for service providers and customers",
+    ],
+    challenges: [
+      "Designing a platform that effectively connects service providers with customers",
+      "Creating a user-friendly interface for diverse users",
+      "Integrating various features seamlessly into a single platform",
+    ],
+    learnings: [
+      "Gained experience in building platforms for service providers and customers",
+    ],
+    links: [
+      {
+        name: "Live Demo",
+        url: "https://projuktisheba.moshiurrahman.online/",
+      },
+      {
+        name: "GitHub",
+        url: "https://github.com/moshiurrahmandeap11/projukti-sheba-client",
+      },
+    ],
+    screenshots: [
+      "https://i.postimg.cc/j5RWskfs/Screenshot-2026-04-08-202056.png",
+      "https://i.postimg.cc/kX22XS2q/Screenshot-2026-04-08-202116.png",
+      "https://i.postimg.cc/V64F1tdT/Screenshot-2026-04-08-202128.png",
+      "https://i.postimg.cc/T14q5Xjr/Screenshot-2026-04-08-202139.png",
+      "https://i.postimg.cc/TYBJRfY7/Screenshot-2026-04-08-202153.png",
+      "https://i.postimg.cc/q7xsXKXT/Screenshot-2026-04-08-202208.png",
+      "https://i.postimg.cc/4NHp2qbQ/Screenshot-2026-04-08-202220.png",
+      "https://i.postimg.cc/HxLywhks/Screenshot-2026-04-08-202233.png",
+    ],
+  },
+  {
+    id: 8,
+    title: "Modern Personal Blog Website",
+    slug: "modern-personal-blog-website",
+    short_description:
+      "Modern Personal Blog Website is a platform for individuals to share their thoughts and ideas through blog posts.",
+    descriptioin:
+      "Modern Personal Blog Website is a platform for individuals to share their thoughts and ideas through blog posts. The website offers features such as customizable themes, social media integration, and a user-friendly content management system. With its modern design and comprehensive features, the website provides an engaging and personalized blogging experience for users.",
+    techStack: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+    features: [
+      "Customizable themes for personalized blog appearance",
+      "Social media integration for easy sharing of blog posts",
+      "User-friendly content management system for creating and managing blog posts",
+      "Responsive design for optimal viewing on various devices",
+      "Comprehensive features for bloggers to engage with their audience",
+    ],
+    challenges: [
+      "Designing a platform that allows for easy customization of blog themes",
+      "Creating a user-friendly content management system for bloggers",
+      "Integrating social media features seamlessly into the blogging platform",
+    ],
+    learnings: [
+      "Gained experience in building blogging platforms with customizable themes",
+      "Learned about the importance of social media integration in modern blogging",
+      "Improved skills in creating user-friendly content management systems with React.js and Tailwind CSS",
+    ],
+    links: [
+      {
+        name: "Live Demo",
+        url: "https://elmulforqaan.com/",
+      },
+      {
+        name: "GitHub",
+        url: "https://github.com/moshiurrahmandeap11/elmul-furqaan",
+      },
+    ],
+    screenshots: [
+      "https://i.postimg.cc/Gmr6xZZ2/Screenshot-2026-04-08-203318.png",
+      "https://i.postimg.cc/GpgNr99M/Screenshot-2026-04-08-203330.png",
+      "https://i.postimg.cc/dQyXPsF3/Screenshot-2026-04-08-203341.png",
+      "https://i.postimg.cc/65VmqMy5/Screenshot-2026-04-08-203350.png",
+      "https://i.postimg.cc/YS0nXk8t/Screenshot-2026-04-08-203359.png",
+      "https://i.postimg.cc/MH29KBw7/Screenshot-2026-04-08-203420.png",
+      "https://i.postimg.cc/bNRmpdBk/Screenshot-2026-04-08-203435.png",
+    ],
+  },
+  {
+    id: 9,
+    title: "Miverr - Freelance Marketplace",
+    slug: "miverr-freelance-marketplace",
+    short_description:
+      "Miverr is a freelance marketplace that connects freelancers with clients looking for their services.",
+    descriptioin:
+      "Miverr is a freelance marketplace that connects freelancers with clients looking for their services. The platform offers features such as service listings, secure payment processing, and a review system for both freelancers and clients. With its user-friendly interface and comprehensive features, Miverr facilitates seamless interactions between freelancers and clients, making it easier for users to find and access the services they need.",
+    techStack: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+    features: [
+      "Service listings for various freelance services",
+      "Secure payment processing for transactions between freelancers and clients",
+      "Review system for both freelancers and clients to provide feedback",
+      "User-friendly interface for easy navigation and interaction",
+    ],
+    challenges: [
+      "Designing a platform that effectively connects freelancers with clients",
+      "Creating a secure payment system for transactions",
+      "Implementing a review system that fosters trust and accountability",
+    ],
+    learnings: [
+      "Gained experience in building freelance marketplace platforms",
+      "Learned about the importance of secure payment processing in online marketplaces",
+      "Improved skills in creating user-friendly interfaces with React.js and Tailwind CSS",
+    ],
+    links: [
+      {
+        name: "Live Demo",
+        url: "https://miverr-7ac31.web.app/",
+      },
+    ],
+    screenshots: [
+      "https://i.postimg.cc/rpY8bVkb/Screenshot-2026-04-08-203837.png",
+      "https://i.postimg.cc/tR6XSGm8/Screenshot-2026-04-08-203907.png",
+      "https://i.postimg.cc/pLsxhWpm/Screenshot-2026-04-08-203920.png",
+    ],
+  },
 ];
