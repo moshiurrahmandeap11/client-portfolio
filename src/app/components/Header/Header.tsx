@@ -6,6 +6,7 @@ import { CiShare1 } from "react-icons/ci";
 import { FaArrowUp, FaGithub } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MusicBox from "../sharedComponents/MusicBox/MusicBox";
+import NavList from "../sharedComponents/NavList/NavList";
 import SearchBox from "../sharedComponents/SearchBox/SearchBox";
 
 const Header = () => {
@@ -90,17 +91,8 @@ const Header = () => {
     setCurrentY(0);
   };
 
-  const navItems = [
-    { name: "Intro", href: "intro" },
-    { name: "About Me", href: "about" },
-    { name: "Projects", href: "projects" },
-    { name: "Skills & Tools", href: "skills-tools" },
-    { name: "Experience", href: "experience" },
-    { name: "Contact", href: "contact" },
-  ];
-
   return (
-    <div className="mt-4">
+    <div className="py-4 bg-transparent backdrop-blur-2xl">
       <div className="flex items-center justify-between">
         <GiHamburgerMenu
           className="text-xl cursor-pointer md:hidden"
@@ -201,7 +193,7 @@ const Header = () => {
               <div className="w-12 h-1 bg-gray-500 rounded-full hover:bg-gray-400 transition-colors duration-200" />
             </div>
 
-            <div className="px-6 pb-8">
+            <div className="px-6 pb-8 mt-4">
               {/* Header Section */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
@@ -222,6 +214,19 @@ const Header = () => {
                 </div>
               </div>
 
+              <div
+                className="w-full flex items-center justify-between bg-black/70 border-2 border-gray-600 px-1 py-2 rounded-md "
+                onClick={closeMenu}
+              >
+                <Link
+                  href="/"
+                  className={`transition-colors pl-4 cursor-pointer ${pathname === "/" ? "text-white font-semibold" : "text-gray-400 hover:text-white"}`}
+                >
+                  Home
+                </Link>
+                <FaArrowUp className="rotate-90 " />
+              </div>
+
               {/* Divider */}
               <div className="flex items-center gap-4 my-6">
                 <div className="flex-1 h-px bg-linear-to-r from-transparent to-gray-500"></div>
@@ -232,28 +237,7 @@ const Header = () => {
               </div>
 
               {/* Navigation Items with Stagger Animation */}
-              <div className="space-y-3">
-                {navItems.map((item, index) => (
-                  <div
-                    key={item.name}
-                    className="group"
-                    style={{
-                      animation: `slideUpFade 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.05}s backwards`,
-                    }}
-                  >
-                    <Link
-                      href={`/${item.href}`}
-                      onClick={closeMenu}
-                      className="flex items-center justify-between py-3 px-2 rounded-lg hover:bg-white/5 transition-all duration-200"
-                    >
-                      <span className="text-base font-medium text-gray-200 group-hover:text-white group-hover:translate-x-1 transition-all duration-200">
-                        {item.name}
-                      </span>
-                      <FaArrowUp className="rotate-90 text-gray-500 group-hover:text-white group-hover:translate-x-1 transition-all duration-200 text-sm" />
-                    </Link>
-                  </div>
-                ))}
-              </div>
+              <NavList onItemClick={closeMenu} />
             </div>
           </div>
         </div>
