@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CiShare1 } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
@@ -5,45 +6,73 @@ import { MdOutlineMailOutline } from "react-icons/md";
 
 const HomePage = () => {
   return (
-    <div className="mt-4">
-      <h1 className="text-white text-3xl font-bold">Moshiur Rahman</h1>
-      <br />
-      <h1 className="text-gray-400 text-3xl font-bold">
-        Code Freak , <br /> Problem Solver!
-      </h1>
-      <br />
-      <p className="text-gray-300 text-lg font-medium">
-        I am a dedicated Software Engineer specializing in full-stack
-        application development. I enjoy crafting responsive web solutions using
-        modern technologies like Next.js, React, Tailwind CSS, Node.js, Express,
-        and MongoDB, while also applying DevOps practices, continuously aiming
-        to deliver high-quality, comprehensive, user-centric software solutions.
-      </p>
-      <br />
-      <div className="flex items-center">
-        <div className="flex items-center justify-between bg-orange-700 px-4 py-2 rounded-md font-semibold">
-          <a href="https://drive.google.com/file/d/1vn6i5n5Y9sH1oJSwMof22kFrp1f8PKC5/view?usp=sharing">
-            Get Resume
-          </a>
-          <CiShare1 />
+    <div className="mt-6 max-w-6xl mx-auto md:px-4">
+      <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
+        {/* Left side - Profile Image */}
+        <div className="md:w-1/3 flex justify-center">
+          <div className="relative mt-10 w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-orange-500 shadow-xl shadow-orange-500/20">
+            <Image
+              src="/profile.jpg"
+              alt="Moshiur Rahman - Professional Portrait"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
-        <div className="flex items-center cursor-pointer  px-4 py-2 rounded-md font-semibold transition-all duration-200">
-          <MdOutlineMailOutline className="text-xl" />
-          <a
-            href="mailto:moshiurrahmandeap@gmail.com"
-            className="ml-2 text-gray-300  transition-colors"
-          >
-            Send Mail
-          </a>
+
+        {/* Right side - Content */}
+        <div className="md:w-2/3">
+          <h1 className="text-white text-4xl md:text-5xl font-bold">
+            Moshiur Rahman
+          </h1>
+          <br />
+          <h1 className="text-orange-400 text-3xl md:text-4xl font-bold">
+            Code Freak, <br /> Problem Solver!
+          </h1>
+          <br />
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+            I am a dedicated Software Engineer specializing in full-stack
+            application development. I enjoy crafting responsive web solutions
+            using modern technologies like Next.js, React, Tailwind CSS,
+            Node.js, Express, and MongoDB, while also applying DevOps practices,
+            continuously aiming to deliver high-quality, comprehensive,
+            user-centric software solutions.
+          </p>
+          <br />
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 px-5 py-2.5 rounded-md font-semibold transition-all duration-300 cursor-pointer group">
+              <a
+                href="https://drive.google.com/file/d/1vn6i5n5Y9sH1oJSwMof22kFrp1f8PKC5/view?usp=sharing"
+                className="text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Resume
+              </a>
+              <CiShare1 className="text-white group-hover:translate-y-0.5 transition-transform" />
+            </div>
+            <div className="flex items-center gap-2 px-5 py-2.5 rounded-md font-semibold transition-all duration-300 cursor-pointer hover:bg-gray-800/50 group">
+              <MdOutlineMailOutline className="text-orange-400 text-xl group-hover:scale-110 transition-transform" />
+              <a
+                href="mailto:moshiurrahmandeap@gmail.com"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Send Mail
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <br />
+
       <Link
         href="/about"
-        className="mt-8 flex items-center justify-end gap-3 px-4 py-2 rounded-md hover:bg-gray-900 transition-colors w-fit ml-auto"
+        className="mt-12 flex items-center justify-end gap-3 px-6 py-3 rounded-md hover:bg-gray-800/50 transition-all duration-300 w-fit ml-auto group"
       >
-        <span className="text-lg font-semibold">About Me</span>
-        <IoIosArrowForward className="text-xl" />
+        <span className="text-lg font-semibold text-gray-300 group-hover:text-white">
+          About Me
+        </span>
+        <IoIosArrowForward className="text-xl text-orange-400 group-hover:translate-x-1 transition-transform" />
       </Link>
     </div>
   );
