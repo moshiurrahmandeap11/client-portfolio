@@ -1,4 +1,5 @@
-import SkillsToolsComponents from "../components/skillsToolsComponents/SkillsToolsComponents";
+import SkillsToolsComponents from "@/app/components/skillsToolsComponents/SkillsToolsComponents";
+
 
 const SkillsTools = () => {
   return (

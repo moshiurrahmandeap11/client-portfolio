@@ -1,6 +1,95 @@
 export const projects = [
   {
     id: 1,
+    title: "BookShelf",
+    slug: "book-shelf",
+    short_description:
+      "BookShelf is a modern full-stack web application that revolutionizes the way people discover, purchase, and manage digital books.",
+    descriptioin:
+      "BookShelf is a modern full-stack web application that revolutionizes the way people discover, purchase, and manage digital books. The platform provides a seamless experience for readers, authors, and administrators with features including user authentication, book listings, shopping cart functionality, wishlist management, reviews and ratings system, AI-powered chatbot assistance, and comprehensive admin dashboard.",
+    techStack: [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "NodeMailer",
+      "JWT",
+      "GROQ SDK",
+      "Firebase",
+      "Tailwind CSS",
+    ],
+    features: [
+      "User registration and secure JWT authentication",
+
+      "Book browsing with advanced filters (category, price, search)",
+
+      "Shopping cart and secure checkout process",
+
+      "Personal wishlist and reading history",
+
+      "Book reviews and star ratings system",
+
+      "AI-powered chatbot for book recommendations",
+
+      "Author dashboard for book management",
+
+      "Admin panel for complete platform control",
+
+      "Email notifications via Nodemailer",
+
+      "Google social login integration",
+
+      "Real-time chat history storage",
+    ],
+    challenges: [
+      "Authentication & Authorization System",
+      "Real-time AI Chatbot Integration",
+      "Image Upload & Cloudinary Integration",
+      "Shopping Cart & Wishlist Synchronization",
+      "Responsive Admin Dashboard",
+      "Email System with Nodemailer",
+      "Database Schema Design",
+      "Search & Filter Performance",
+    ],
+    learnings: [
+      "Next.js App Router Mastery",
+      "JWT Authentication Best Practices",
+      "MongoDB Aggregation & Indexing",
+      "Cloudinary Image Management",
+      "AI Integration with Groq API",
+      "Real-time UI Updates",
+      "Error Handling & User Feedback",
+      "Responsive Design Patterns",
+    ],
+    links: [
+      {
+        name: "Live Demo",
+        url: "https://client-bookshelf.vercel.app/",
+      },
+      {
+        name: "GitHub",
+        url: "https://github.com/moshiurrahmandeap11/client-bookshelf",
+      },
+    ],
+    screenshots: [
+      "https://i.postimg.cc/tgyxgqPR/Screenshot-from-2026-04-28-19-42-08.png",
+      "https://i.postimg.cc/fLPyYD3G/Screenshot-from-2026-04-28-19-42-15.png",
+      "https://i.postimg.cc/rwT1DN2q/Screenshot-from-2026-04-28-19-42-22.png",
+      "https://i.postimg.cc/gc684TYd/Screenshot-from-2026-04-28-19-42-30.png",
+      "https://i.postimg.cc/4yCKrXJC/Screenshot-from-2026-04-28-19-42-37.png",
+      "https://i.postimg.cc/t4R10SHJ/Screenshot-from-2026-04-28-19-43-14.png",
+      "https://i.postimg.cc/5Nbyv7jb/Screenshot-from-2026-04-28-19-43-28.png",
+      "https://i.postimg.cc/pVYX2fCQ/Screenshot-from-2026-04-28-19-43-48.png",
+      "https://i.postimg.cc/zvJNLQ7M/Screenshot-from-2026-04-28-19-43-56.png",
+      "https://i.postimg.cc/Xq2RrYXR/Screenshot-from-2026-04-28-19-44-01.png",
+      "https://i.postimg.cc/zvfMYY0r/Screenshot-from-2026-04-28-19-44-08.png",
+      "https://i.postimg.cc/tJfr0Zsq/Screenshot-from-2026-04-28-19-44-14.png",
+      "https://i.postimg.cc/wxPFjNB7/Screenshot-from-2026-04-28-19-44-22.png",
+      "https://i.postimg.cc/yW4FXFgC/Screenshot-from-2026-04-28-19-44-30.png",
+    ],
+  },
+  {
+    id: 2,
     title: "BD BOOK",
     slug: "bd-book",
     short_description:
@@ -59,7 +148,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Career Crafter",
     slug: "career-crafter",
     short_description:
@@ -120,7 +209,7 @@ export const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Code Circle",
     slug: "code-circle",
     short_description:
@@ -173,7 +262,7 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Coursion",
     slug: "coursion",
     short_description:
@@ -217,7 +306,7 @@ export const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "School and college management",
     slug: "school-college-management",
     short_description:
@@ -258,7 +347,7 @@ export const projects = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     title: "Netrakona Pressclub website",
     slug: "netrakona-pressclub-website",
     short_description:
@@ -294,7 +383,7 @@ export const projects = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     title: "Service Provider",
     slug: "service-provider",
     short_description:
@@ -340,7 +429,7 @@ export const projects = [
     ],
   },
   {
-    id: 8,
+    id: 9,
     title: "Modern Personal Blog Website",
     slug: "modern-personal-blog-website",
     short_description:
@@ -386,7 +475,7 @@ export const projects = [
     ],
   },
   {
-    id: 9,
+    id: 10,
     title: "Miverr - Freelance Marketplace",
     slug: "miverr-freelance-marketplace",
     short_description:

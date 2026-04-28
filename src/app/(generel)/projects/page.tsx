@@ -1,4 +1,5 @@
-import ProjectsPage from "../components/projectsComponents/ProjectsPage";
+import ProjectsPage from "@/app/components/projectsComponents/ProjectsPage";
+
 
 const Projects = () => {
   return (

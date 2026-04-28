@@ -1,11 +1,10 @@
 import HomePage from "../components/homeComponents/Home/HomePage";
 
-const Intro = () => {
+
+export default function Home() {
   return (
     <div>
       <HomePage />
     </div>
   );
-};
-
-export default Intro;
+}
