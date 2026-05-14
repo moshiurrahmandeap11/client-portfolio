@@ -6,6 +6,8 @@ import { IoIosArrowBack } from "react-icons/io";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import axiosInstance from "../sharedComponents/AxiosInstance/AxiosInstance";
+// RichTextEditor ইম্পোর্ট করুন TypeScript টাইপ সহ
+import { RichTextEditor } from "richmoshiur";
 
 const MySwal = withReactContent(Swal);
 
@@ -49,6 +51,14 @@ const ContactPage = () => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,
+    }));
+  };
+
+  // Handle RichTextEditor change with proper TypeScript typing
+  const handleMessageChange = (content: string): void => {
+    setFormData((prev: FormData) => ({
+      ...prev,
+      message: content,
     }));
   };
 
@@ -194,7 +204,7 @@ const ContactPage = () => {
             </p>
           </div>
 
-          {/* Message Field */}
+          {/* Message Field - RichTextEditor with TypeScript Support */}
           <div>
             <label
               htmlFor="message"
@@ -202,15 +212,10 @@ const ContactPage = () => {
             >
               Message <span className="text-red-500">*</span>
             </label>
-            <textarea
-              id="message"
-              name="message"
+            <RichTextEditor
               value={formData.message}
-              onChange={handleChange}
+              onChange={handleMessageChange}
               placeholder="Your words, my inbox."
-              rows={5}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-800 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors resize-none"
-              required
             />
           </div>
 

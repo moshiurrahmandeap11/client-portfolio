@@ -214,6 +214,18 @@ const Header = () => {
                         <CiShare1 className="transition-transform duration-200 group-hover:rotate-90" />
                       </a>
                     </li>
+                    <li>
+                                           <Link
+                        href="/blogs"
+                        className={`transition-all duration-200 ${
+                          pathname === "/blogs"
+                            ? "text-orange-400 font-semibold"
+                            : "text-gray-400 hover:text-white"
+                        }`}
+                      >
+                        Blogs
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>

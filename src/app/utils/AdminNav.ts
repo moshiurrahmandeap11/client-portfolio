@@ -16,13 +16,16 @@ export const AdminNav = [
       {
         name: "Add Blog",
         href: "add-blog",
-        path: "/blogs/create/admin",
-      },
-      {
-        name: "Edit Blog",
-        href: "edit-blog",
-        path: "/blogs/edit/admin",
+        path: "/blogs-create-admin",
       },
     ],
   },
+  {
+    name: "Contact",
+    href: "/contact-admin",
+    children: [
+      { name: "New Contacts", href: "/new-contact", path: "/admin/moshiur/new-contacts-admin" },
+      { name: "Read Contacts", href: "/read-contacts", path: "/admin/moshiur/read-contacts-admin" },
+    ]
+  }
 ];
