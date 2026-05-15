@@ -26,17 +26,31 @@ const HomePage = () => {
 
   const [profileInfo, setProfileInfo] = useState<ProfileData | null>(null);
 
-  useEffect(() => {
-    const tryFetch = async () => {
-      try {
-        const res = await axiosInstance.get("/profile");
-        setProfileInfo(res.data.data);
-      } catch (error) {
-        console.log("Failed to fetch profile:", error);
-      }
-    };
-    tryFetch();
-  }, []);
+    useEffect(() => {
+        // 1. First: Load from localStorage instantly
+        const cachedData = localStorage.getItem("profileData");
+        if (cachedData) {
+            setProfileInfo(JSON.parse(cachedData));
+        }
+
+        // 2. Then: Fetch fresh data from server and update
+        const fetchProfile = async () => {
+            try {
+                const res = await axiosInstance.get("/profile");
+                const profileData = res.data.data;
+                
+                // Save to localStorage
+                localStorage.setItem("profileData", JSON.stringify(profileData));
+                
+                // Update state with fresh data
+                setProfileInfo(profileData);
+            } catch (error) {
+                console.log("Failed to fetch profile:", error);
+            }
+        };
+        
+        fetchProfile();
+    }, []);
 
   const profilePicture = profileInfo?.profilePicture?.url;
   const resumeUrl = profileInfo?.resume?.url;

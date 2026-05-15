@@ -64,15 +64,16 @@ const Header = () => {
 
 
   useEffect(() => {
-    const tryFetch = async () => {
-      try {
-        const res = await axiosInstance.get("/profile");
-        setProfileInfo(res.data.data);
-      } catch (error) {
-        console.log("Failed to fetch profile:", error);
+    // 1. First: Load from localStorage instantly
+    const fetchProfile = () => {
+
+      const cachedData = localStorage.getItem("profileData");
+      if (cachedData) {
+        setProfileInfo(JSON.parse(cachedData));
       }
-    };
-    tryFetch();
+    }
+
+    fetchProfile();
   }, []);
 
   const profilePicture = profileInfo?.profilePicture?.url;
