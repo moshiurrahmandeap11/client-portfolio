@@ -1,4 +1,6 @@
 import { MetadataRoute } from "next";
+import axiosInstance from "./components/sharedComponents/AxiosInstance/AxiosInstance";
+
 
 const pages = [
   {
@@ -15,6 +17,12 @@ const pages = [
   },
   {
     url: "https://moshiurrahman.online/projects",
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  },
+  {
+    url: "https://moshiurrahman.online/blogs",
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.9,
@@ -67,7 +75,25 @@ const projects = [
   },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+interface Blog {
+  id: number | string;
+  title: string;
+  updatedAt?: string;
+  createdAt?: string;
+}
+
+async function getBlogPosts() {
+  try {
+    const response = await axiosInstance.get("/blogs");
+    const blogs: Blog[] = response.data.data;
+    return blogs;
+  } catch (error) {
+    console.error("Failed to fetch blog posts:", error);
+    return [];
+  }
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = pages.map((page) => ({
     url: page.url,
     lastModified: page.lastModified,
@@ -82,5 +108,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...projectPages];
+  // Fetch dynamic blog posts
+  const blogs = await getBlogPosts();
+  
+  const blogPages = blogs.map((blog) => ({
+    url: `https://moshiurrahman.online/blog/${blog.id}`,
+    lastModified: blog.updatedAt ? new Date(blog.updatedAt) : new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...projectPages, ...blogPages];
 }

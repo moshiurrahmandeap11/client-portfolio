@@ -1,5 +1,5 @@
 # robots.txt for moshiurrahman.online
-# این فایل به موتورهای جستجو می‌گوید چگونه سایت شما را ایندکس کنند
+# Helps search engines crawl and index your site efficiently
 
 User-agent: *
 Allow: /
@@ -9,18 +9,20 @@ Disallow: /admin/
 Disallow: /_next/
 Disallow: /static/
 
-# Sitemap location
-Sitemap: https://moshiurrahman.online/sitemap.xml
+# Allow AdSense crawler
+User-agent: Mediapartners-Google
+Allow: /
 
-# Crawl delay for slower bots
-Crawl-delay: 5
-
-# برای گوگل بوت
+# Allow Googlebot
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 2
 
-# برای بینگ بوت
+# Allow Bingbot
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://moshiurrahman.online/sitemap.xml
+Sitemap: https://moshiurrahman.online/sitemap-0.xml
