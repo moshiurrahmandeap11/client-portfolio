@@ -45,6 +45,12 @@ const pages = [
     changeFrequency: "yearly" as const,
     priority: 0.7,
   },
+  {
+    url: "https://moshiurrahman.online/privacy-policy",
+    lastModified: new Date(),
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  },
 ];
 
 const projects = [
@@ -110,7 +116,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Fetch dynamic blog posts
   const blogs = await getBlogPosts();
-  
+
   const blogPages = blogs.map((blog) => ({
     url: `https://moshiurrahman.online/blog/${blog._id}`,
     lastModified: blog.updatedAt ? new Date(blog.updatedAt) : new Date(),
