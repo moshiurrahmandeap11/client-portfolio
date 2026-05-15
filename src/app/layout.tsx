@@ -86,7 +86,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7757119469762225"
-          crossorigin="anonymous"></script>
+          crossOrigin="anonymous"></script>
         <div className="w-full max-w-10/12 mx-auto">
           <main className="min-h-screen flex gap-6">
             {/* Content */}
