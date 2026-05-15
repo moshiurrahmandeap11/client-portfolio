@@ -76,7 +76,7 @@ const projects = [
 ];
 
 interface Blog {
-  id: number | string;
+  _id: number | string;
   title: string;
   updatedAt?: string;
   createdAt?: string;
@@ -112,7 +112,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogs = await getBlogPosts();
   
   const blogPages = blogs.map((blog) => ({
-    url: `https://moshiurrahman.online/blog/${blog.id}`,
+    url: `https://moshiurrahman.online/blog/${blog._id}`,
     lastModified: blog.updatedAt ? new Date(blog.updatedAt) : new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
