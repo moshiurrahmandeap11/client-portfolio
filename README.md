@@ -6,7 +6,7 @@ A polished personal portfolio built with Next.js and Tailwind CSS. This project 
 
 ### Desktop
 
-![Desktop Screenshot](https://i.postimg.cc/JhS5gzV/Screenshot-2026-05-15-200358.png)
+![Desktop Screenshot](https://i.postimg.cc/JhS5gzZV/Screenshot-2026-05-15-200358.png)
 
 ### Mobile
 
