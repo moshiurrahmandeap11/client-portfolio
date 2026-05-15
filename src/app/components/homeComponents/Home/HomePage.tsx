@@ -8,16 +8,41 @@ const HomePage = () => {
   return (
     <div className="mt-6 max-w-6xl mx-auto md:px-4">
       <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
-        {/* Left side - Profile Image */}
+        {/* Left side - Profile Image with Glass Badges Below */}
         <div className="md:w-1/3 flex justify-center">
-          <div className="relative mt-10 w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-orange-500 shadow-xl shadow-orange-500/20">
-            <Image
-              src="/profile.jpg"
-              alt="Moshiur Rahman - Professional Portrait"
-              fill
-              className="object-cover"
-              priority
-            />
+          <div className="relative mt-10 md:mt-0 flex flex-col items-center">
+            {/* Main Profile Image */}
+            <div className="relative w-52 h-52 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl shadow-black/30 backdrop-blur-sm z-10">
+              <Image
+                src="/profile.jpeg"
+                alt="Moshiur Rahman - Professional Portrait"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent pointer-events-none" />
+            </div>
+
+            {/* Glass Ring */}
+            <div className="absolute top-[44%] -translate-y-1/2 w-68 h-68 sm:w-76 sm:h-76 md:w-84 md:h-84 rounded-full border border-white/10 backdrop-blur-3xl bg-white/2" />
+
+            {/* Badges Below Image - Horizontal Row with Dots */}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4 mt-6 sm:mt-8 z-10">
+              <span className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 bg-white/10 backdrop-blur-2xl text-white/90 text-[10px] sm:text-xs md:text-sm font-medium rounded-full border border-white/20 shadow-lg shadow-black/20 hover:bg-white/20 hover:border-white/30 hover:scale-105 transition-all duration-300 cursor-default">
+                <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
+                Web Engineer
+              </span>
+
+              <span className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 bg-white/10 backdrop-blur-2xl text-white/90 text-[10px] sm:text-xs md:text-sm font-medium rounded-full border border-white/20 shadow-lg shadow-black/20 hover:bg-white/20 hover:border-white/30 hover:scale-105 transition-all duration-300 cursor-default">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                Problem Solver
+              </span>
+
+              <span className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 bg-white/10 backdrop-blur-2xl text-white/90 text-[10px] sm:text-xs md:text-sm font-medium rounded-full border border-white/20 shadow-lg shadow-black/20 hover:bg-white/20 hover:border-white/30 hover:scale-105 transition-all duration-300 cursor-default">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                AI Enthusiast
+              </span>
+            </div>
           </div>
         </div>
 

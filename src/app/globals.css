@@ -45,3 +45,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #444;
 }
+
+@keyframes spin_reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+.animate-spin-reverse {
+    animation: spin_reverse 20s linear infinite;
+}
