@@ -5,6 +5,14 @@ export const AdminNav = [
     path: "/dashboard",
   },
   {
+    name: "Profile",
+    href: "/profile",
+    children: [
+      { name: "Show Profile", href: "/profile-show", path: "/profile-show-admin" },
+      { name: "Update Profile", href: "/update-profile", path: "/update-profile-admin" },
+    ]
+  },
+  {
     name: "Blogs",
     href: "blogs",
     children: [

@@ -11,6 +11,23 @@ import { MdClose } from "react-icons/md";
 import MusicBox from "../sharedComponents/MusicBox/MusicBox";
 import NavList from "../sharedComponents/NavList/NavList";
 import SearchBox from "../sharedComponents/SearchBox/SearchBox";
+import axiosInstance from "../sharedComponents/AxiosInstance/AxiosInstance";
+
+interface ProfileData {
+  _id: string;
+  profilePicture?: {
+    url: string;
+    publicId: string;
+    mediaType: string;
+  } | null;
+  resume?: {
+    url: string;
+    fileName: string;
+  } | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
 
 const Header = () => {
   const pathname = usePathname();
@@ -22,6 +39,7 @@ const Header = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [translateY, setTranslateY] = useState(0);
   const menuRef = useRef<HTMLDivElement>(null);
+  const [profileInfo, setProfileInfo] = useState<ProfileData | null>(null);
   const [time, setTime] = useState(
     new Date().toLocaleTimeString([], {
       hour: "2-digit",
@@ -43,6 +61,22 @@ const Header = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+
+  useEffect(() => {
+    const tryFetch = async () => {
+      try {
+        const res = await axiosInstance.get("/profile");
+        setProfileInfo(res.data.data);
+      } catch (error) {
+        console.log("Failed to fetch profile:", error);
+      }
+    };
+    tryFetch();
+  }, []);
+
+  const profilePicture = profileInfo?.profilePicture?.url;
+  const resumeUrl = profileInfo?.resume?.url;
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -183,11 +217,10 @@ const Header = () => {
                     <li>
                       <Link
                         href="/"
-                        className={`transition-all duration-200 ${
-                          pathname === "/"
-                            ? "text-orange-400 font-semibold"
-                            : "text-gray-400 hover:text-white"
-                        }`}
+                        className={`transition-all duration-200 ${pathname === "/"
+                          ? "text-orange-400 font-semibold"
+                          : "text-gray-400 hover:text-white"
+                          }`}
                       >
                         Home
                       </Link>
@@ -205,7 +238,7 @@ const Header = () => {
                     </li>
                     <li className="group flex items-center gap-2 font-semibold text-gray-400 hover:text-white transition-all duration-200">
                       <a
-                        href="https://drive.google.com/file/d/1SLw6YHzNh0fdagBRbOMO77cVzqQSWW6t/view?usp=sharing"
+                        href={resumeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2"
@@ -215,13 +248,12 @@ const Header = () => {
                       </a>
                     </li>
                     <li>
-                                           <Link
+                      <Link
                         href="/blogs"
-                        className={`transition-all duration-200 ${
-                          pathname === "/blogs"
-                            ? "text-orange-400 font-semibold"
-                            : "text-gray-400 hover:text-white"
-                        }`}
+                        className={`transition-all duration-200 ${pathname === "/blogs"
+                          ? "text-orange-400 font-semibold"
+                          : "text-gray-400 hover:text-white"
+                          }`}
                       >
                         Blogs
                       </Link>
@@ -258,7 +290,7 @@ const Header = () => {
                 className="focus:outline-none focus:ring-2 focus:ring-orange-400 rounded-full transition-transform hover:scale-105"
               >
                 <Image
-                  src="/profile.jpg"
+                  src={profilePicture || "/profile.jpg"}
                   alt="Moshiur Rahman profile"
                   width={32}
                   height={32}
@@ -342,11 +374,10 @@ const Header = () => {
               >
                 <Link
                   href="/"
-                  className={`transition-colors ${
-                    pathname === "/"
-                      ? "text-orange-400 font-semibold"
-                      : "text-gray-300 hover:text-white"
-                  }`}
+                  className={`transition-colors ${pathname === "/"
+                    ? "text-orange-400 font-semibold"
+                    : "text-gray-300 hover:text-white"
+                    }`}
                 >
                   Home
                 </Link>
@@ -395,7 +426,7 @@ const Header = () => {
             <div className="relative -mt-12 flex justify-center">
               <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-gray-900 bg-linear-to-br from-gray-800 to-gray-900">
                 <Image
-                  src="/profile.jpg"
+                  src={profilePicture || "/profile.jpg"}
                   alt="Moshiur Rahman"
                   fill
                   sizes="10px"

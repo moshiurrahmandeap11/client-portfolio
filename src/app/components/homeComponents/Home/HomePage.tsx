@@ -1,10 +1,48 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { CiShare1 } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
 import { MdOutlineMailOutline } from "react-icons/md";
+import axiosInstance from "../../sharedComponents/AxiosInstance/AxiosInstance";
+import { useEffect, useState } from "react";
+
+interface ProfileData {
+    _id: string;
+    profilePicture?: {
+        url: string;
+        publicId: string;
+        mediaType: string;
+    } | null;
+    resume?: {
+        url: string;
+        fileName: string;
+    } | null;
+    createdAt: string;
+    updatedAt: string;
+}
 
 const HomePage = () => {
+
+  const [profileInfo, setProfileInfo] = useState<ProfileData | null>(null);
+
+  useEffect(() => {
+    const tryFetch = async () => {
+      try {
+        const res = await axiosInstance.get("/profile");
+        setProfileInfo(res.data.data);
+      } catch (error) {
+        console.log("Failed to fetch profile:", error);
+      }
+    };
+    tryFetch();
+  }, []);
+
+  const profilePicture = profileInfo?.profilePicture?.url;
+  const resumeUrl = profileInfo?.resume?.url;
+
+
+
   return (
     <div className="mt-6 max-w-6xl mx-auto md:px-4">
       <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
@@ -13,13 +51,13 @@ const HomePage = () => {
           <div className="relative mt-10 md:mt-0 flex flex-col items-center">
             {/* Main Profile Image */}
             <div className="relative w-52 h-52 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl shadow-black/30 backdrop-blur-sm z-10">
-              <Image
-                src="/profile.jpeg"
-                alt="Moshiur Rahman - Professional Portrait"
-                fill
-                className="object-cover"
-                priority
-              />
+<Image
+    src={profilePicture || "/profile.jpg"}  
+    alt="Moshiur Rahman - Professional Portrait"
+    fill
+    className="object-cover"
+    priority
+/>
               <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent pointer-events-none" />
             </div>
 
@@ -49,7 +87,7 @@ const HomePage = () => {
         {/* Right side - Content */}
         <div className="md:w-2/3">
           <h1 className="text-white text-4xl md:text-5xl font-bold">
-            Moshiur Rahman
+            Moshiur Rahman Deap
           </h1>
           <br />
           <h1 className="text-orange-400 text-3xl md:text-4xl font-bold">
@@ -68,7 +106,7 @@ const HomePage = () => {
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 px-5 py-2.5 rounded-md font-semibold transition-all duration-300 cursor-pointer group">
               <a
-                href="https://drive.google.com/file/d/1vn6i5n5Y9sH1oJSwMof22kFrp1f8PKC5/view?usp=sharing"
+                href={resumeUrl}
                 className="text-white"
                 target="_blank"
                 rel="noopener noreferrer"
