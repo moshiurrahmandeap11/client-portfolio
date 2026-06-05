@@ -4,40 +4,31 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 const ExperiencePage = () => {
   const experiences = [
     {
+      title: "Software Engineer",
+      company: "AviroSoft",
+      type: "full-time",
+      period: "Jun. 2026 - Present",
+      latest: true,
+      description:
+        "Developing and maintaining web applications using React, Node.js, Express, PostgreSQL and Prisma.Collaborating with the development team using Git and GitHub workflows.Building scalable APIs and implementing new features based on business requirements.",
+    },
+    {
       title: "Freelance Web Developer",
       company: "Self-Employed",
       type: null,
-      period: "Jun. 2025 - Present",
-      latest: false,
+      period: "Jun. 2024 - Present",
+      latest: true,
       description:
         "Working independently with clients worldwide, successfully delivering 20+ projects ranging from dynamic web applications to custom APIs — all from home.",
     },
     {
       title: "Full Stack Web Developer",
       company: "Projukti Sheba",
-      type: "Contractual",
-      period: "Jan. 2026 - Present",
-      latest: true,
+      type: "full-time",
+      period: "Jan. 2025 - jan. 2026",
+      latest: false,
       description:
         "Currently responsible for developing responsive front-end designs, architecting RESTful APIs, and integrating external services — ensuring high-quality delivery under a contractual engagement.",
-    },
-    {
-      title: "Full Stack Web Developer",
-      company: "Projukti Sheba",
-      type: "Remote",
-      period: "Jun. 2025 - Dec. 2025",
-      latest: false,
-      description:
-        "Designed responsive front-end interfaces, built RESTful APIs, and integrated third-party services to deliver seamless user experiences in a fully remote environment.",
-    },
-    {
-      title: "Full Stack Web Developer",
-      company: "Projukti Sheba",
-      type: null,
-      period: "Jan. 2025 - Jun. 2025",
-      latest: false,
-      description:
-        "Developed and maintained modern web applications using the MERN stack — MongoDB, Express.js, React.js, and Node.js — contributing to scalable and performant full-stack solutions.",
     },
   ];
 
