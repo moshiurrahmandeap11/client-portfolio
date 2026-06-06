@@ -16,7 +16,7 @@ const ExperiencePage = () => {
       title: "Freelance Web Developer",
       company: "Self-Employed",
       type: null,
-      period: "Jun. 2024 - Present",
+      period: "Feb. 2024 - Present",
       latest: true,
       description:
         "Working independently with clients worldwide, successfully delivering 20+ projects ranging from dynamic web applications to custom APIs — all from home.",
